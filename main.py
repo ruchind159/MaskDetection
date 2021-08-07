@@ -10,7 +10,6 @@ maskNet = load_model('mask_detector.model')
 
 
 app = Flask(__name__)
-video = cv2.VideoCapture(0)
 @app.route('/')
 def index():
     return "Mask Detection"
@@ -18,6 +17,7 @@ def index():
 
 
 def gen(video):
+    video = cv2.VideoCapture(0)
     while True:
         # success, image = video.read()
         success, frame = video.read()
