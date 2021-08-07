@@ -7,8 +7,6 @@ faceNet = cv2.dnn.readNet("deploy.prototxt.txt", "res10_300x300_ssd_iter_140000.
 maskNet = load_model('mask_detector.model')
 
 
-
-
 app = Flask(__name__)
 @app.route('/')
 def index():
@@ -17,7 +15,6 @@ def index():
 
 
 def gen(video):
-    video = cv2.VideoCapture(0)
     while True:
         # success, image = video.read()
         success, frame = video.read()
@@ -79,6 +76,6 @@ def gen(video):
         
 @app.route('/video_feed')
 def video_feed():
-    global video
+    video = cv2.VideoCapture(0)
     return Response(gen(video),
                     mimetype='multipart/x-mixed-replace; boundary=frame')
