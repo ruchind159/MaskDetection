@@ -2,7 +2,7 @@ Flask==2.0.1
 imutils==0.5.4
 Keras==2.3.1
 numpy
-opencv-python
+opencv-python-headless
 Pillow
 tensorflow-cpu
 gunicorn
